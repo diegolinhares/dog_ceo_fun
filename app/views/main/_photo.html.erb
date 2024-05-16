@@ -2,8 +2,10 @@
 
 <% if dog %>
   <div>
-    <h2><%= dog.breed %></h2>
-    <figure id="dog-photo" class="w-48 h-48 border border-gray-300 rounded-md flex items-center justify-center">
+    <h2 class="mb-4 text-2xl font-semibold text-gray-700 md:text-3xl lg:text-4xl bg-yellow-200 p-2 rounded-md border border-yellow-300 shadow-sm">
+      <%= dog.breed.capitalize %>
+    </h2>
+    <figure class="w-48 h-48 border border-gray-300 rounded-md flex items-center justify-center">
       <%= image_tag(dog.photo_url, alt: "Dog photo", class: "object-cover w-full h-full rounded-md") %>
     </figure>
   </div>

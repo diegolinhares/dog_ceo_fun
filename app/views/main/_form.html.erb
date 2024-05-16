@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center space-x-4">
+<div class="mt-4 flex items-center justify-center space-x-6">
   <%= form_with url: dog_ceo_api_searches_path, scope: :search, method: :post, class: "space-y-4" do |form| %>
     <div class="w-full">
       <%= form.label :breed, class: "block text-sm font-medium text-gray-700" %>
@@ -9,7 +9,15 @@
     </div>
   <% end %>
 
-  <div id="dog-photo">
-    <%= render partial: "main/photo", locals: { dog: nil }%>
+  <div data-controller="loading">
+    <div data-loading-target="spinner"
+      data-action="turbo:before-fetch-request@document->loading#show turbo:before-stream-render@document->loading#hide"
+      class="hidden flex h-48 w-48 items-center justify-center bg-white bg-opacity-75">
+      <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
+    </div>
+
+    <div id="dog-photo" data-loading-target="photo">
+      <%= render partial: "main/photo", locals: { dog: nil }%>
+    </div>
   </div>
 </div>

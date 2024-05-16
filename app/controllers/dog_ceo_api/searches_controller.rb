@@ -16,18 +16,24 @@ module DogCeoApi
     end
 
     def render_dog_photo(dog)
-      render turbo_stream: turbo_stream.update(
-        "dog-photo",
-        partial: "main/photo",
-        locals: { dog: }
-      )
+      flash.now[:notice] = "Breed found!"
+
+      render turbo_stream: [
+        turbo_stream.update("flash", partial: "application/flash_messages"),
+        turbo_stream.update(
+          "dog-photo",
+          partial: "main/photo",
+          locals: { dog: }
+        )
+      ]
     end
 
     def render_flash_message_error(error)
       flash.now[:alert] = error.message
 
       render turbo_stream: [
-        turbo_stream.replace("flash", partial: "application/flash_messages")
+        turbo_stream.update("dog-photo"),
+        turbo_stream.update("flash", partial: "application/flash_messages")
       ]
     end
   end
