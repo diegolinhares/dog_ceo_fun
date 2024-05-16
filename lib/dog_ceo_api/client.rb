@@ -2,7 +2,7 @@ module DogCeoApi
   module Client
     extend self
 
-    Dog = ::Data.define(:photo_url)
+    Dog = ::Data.define(:breed, :photo_url)
     Error = ::Data.define(:message)
 
     def random_image(breed:)
@@ -14,7 +14,7 @@ module DogCeoApi
       in {status: "error", message: message, code: 404}
         Error[message]
       in { status: "success", message: photo_url}
-        Dog[photo_url]
+        Dog[breed, photo_url]
       else
         Error["Something went wrong"]
       end

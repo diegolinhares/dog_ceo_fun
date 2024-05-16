@@ -11,11 +11,13 @@ module DogCeoApi
     end
 
     test "random_image when the breed exists" do
+      breed = "hound"
+
       result = VCR.use_cassette("breed/exists") do
-        ::DogCeoApi::Client.random_image(breed: "hound")
+        ::DogCeoApi::Client.random_image(breed:)
       end
 
-      dog = ::DogCeoApi::Client::Dog["https://images.dog.ceo/breeds/hound-blood/n02088466_2030.jpg"]
+      dog = ::DogCeoApi::Client::Dog[breed, "https://images.dog.ceo/breeds/hound-blood/n02088466_2030.jpg"]
 
       assert_equal(dog, result)
     end
