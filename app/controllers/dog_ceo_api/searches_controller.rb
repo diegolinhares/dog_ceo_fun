@@ -1,7 +1,7 @@
 module DogCeoApi
   class SearchesController < ::ApplicationController
     def create
-      breed = search_params[:breed].downcase
+      breed = search_params[:breed].strip.gsub(" ", "/").downcase
 
       case Client.random_image(breed:)
       in ::DogCeoApi::Client::Error => error
