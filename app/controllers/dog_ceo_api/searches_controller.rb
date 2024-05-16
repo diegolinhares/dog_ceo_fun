@@ -1,7 +1,9 @@
 module DogCeoApi
   class SearchesController < ::ApplicationController
     def create
-      case Client.random_image(breed: search_params[:breed])
+      breed = search_params[:breed].downcase
+
+      case Client.random_image(breed:)
       in ::DogCeoApi::Client::Error => error
         render_flash_message_error(error)
       in ::DogCeoApi::Client::Dog => dog
