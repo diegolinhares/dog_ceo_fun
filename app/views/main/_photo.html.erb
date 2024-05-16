@@ -1,0 +1,5 @@
+<% if photo_url %>
+  <figure id="dog-photo" class="w-48 h-48 border border-gray-300 rounded-md flex items-center justify-center">
+    <%= image_tag(photo_url, alt: "Dog photo", class: "object-cover w-full h-full rounded-md") %>
+  </figure>
+<% end %>
