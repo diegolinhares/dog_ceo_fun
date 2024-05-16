@@ -18,7 +18,7 @@ class DogCeoApi::SearchesControllerTest < ::ActionDispatch::IntegrationTest
     end
 
     assert_response :success
-    assert_select "turbo-stream[action=replace][target=flash]" do
+    assert_select "turbo-stream[action=update][target=flash]" do
       assert_select "template"
     end
     assert_match "Breed not found", flash[:alert]

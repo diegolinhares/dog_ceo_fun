@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://dog.ceo/api/breed/Cachorro/images/random
+    uri: https://dog.ceo/api/breed/cachorro/images/random
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Wed, 15 May 2024 21:42:21 GMT
+      - Thu, 16 May 2024 20:05:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -47,18 +47,18 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=JnMgHKs92LfHKluF%2F42WXkytpyaeOBeMX9bK0GmDz%2B7Y2epjCGUr5YOQZ5Wn5yTcmPiKpRFedr5mF0760Uw4%2FOW8THUmPSt3aZTQpltQmFQl%2FJdo6Fhr%2FaPp"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=iicqxz%2FAmewZI33RypJVCEksWV9imdYNW2pAUvna4EHmXBcX06L29JDdENKUfM%2FBiN%2Bo4Nb6OTSwxPi8oxPm%2FYGHE8qcsv0tDOJSkcFhJh2KWnikttuhVEAc"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 88464c1ae8307a91-GIG
+      - 884dfc4fc9527a63-GIG
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: '{"status":"error","message":"Breed not found (master breed does not
         exist)","code":404}'
-  recorded_at: Wed, 15 May 2024 21:42:21 GMT
+  recorded_at: Thu, 16 May 2024 20:05:58 GMT
 recorded_with: VCR 6.2.0
