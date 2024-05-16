@@ -8,5 +8,9 @@ Rails.application.routes.draw do
 
   resources :main, only: [ :index ]
 
+  namespace :dog_ceo_api do
+    resources :searches, only: [ :create ]
+  end
+
   root "main#index"
 end
