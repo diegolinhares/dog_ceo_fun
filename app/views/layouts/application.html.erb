@@ -20,6 +20,10 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
+      <div id="flash" data-turbo-temporary>
+        <%= render "application/flash_messages" %>
+      </div>
+
       <%= yield %>
     </main>
   </body>
