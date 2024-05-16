@@ -23,4 +23,14 @@ class DogCeoApi::SearchesControllerTest < ::ActionDispatch::IntegrationTest
     end
     assert_match "Breed not found", flash[:alert]
   end
+
+  test "should render flash error when breed is blank" do
+    post dog_ceo_api_searches_url, params: { search: { breed: " " } }, as: :turbo_stream
+
+    assert_response :success
+    assert_select "turbo-stream[action=update][target=flash]" do
+      assert_select "template"
+    end
+    assert_match "Breed cannot be blank", flash[:alert]
+  end
 end

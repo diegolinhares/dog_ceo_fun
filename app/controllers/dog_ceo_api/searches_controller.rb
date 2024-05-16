@@ -3,9 +3,13 @@ module DogCeoApi
     def create
       breed = search_params[:breed].strip.gsub(" ", "/").downcase
 
+      if breed.blank?
+        return render_flash_message_error("Breed cannot be blank")
+      end
+
       case Client.random_image(breed:)
-      in ::DogCeoApi::Client::Error => error
-        render_flash_message_error(error)
+      in ::DogCeoApi::Client::Error => _error
+        render_flash_message_error("Breed not found")
       in ::DogCeoApi::Client::Dog => dog
         render_dog_photo(dog)
       end
@@ -31,7 +35,7 @@ module DogCeoApi
     end
 
     def render_flash_message_error(error)
-      flash.now[:alert] = error.message
+      flash.now[:alert] = error
 
       render turbo_stream: [
         turbo_stream.update("dog-photo"),
